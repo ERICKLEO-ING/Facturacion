@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Invoice xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       	xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+       	xmlns:cac="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2"
+       	xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2"
+       	xmlns:ccts="urn:un:unece:uncefact:documentation:2"
+       	xmlns:ds="http://www.w3.org/2000/09/xmldsig#"
+       	xmlns:ext="urn:oasis:names:specification:ubl:schema:xsd:CommonExtensionComponents-2"
+       	xmlns:qdt="urn:oasis:names:specification:ubl:schema:xsd:QualifiedDatatypes-2"
+       	xmlns:udt="urn:un:unece:uncefact:data:specification:UnqualifiedDataTypesSchemaModule:2"
+       	xmlns="urn:oasis:names:specification:ubl:schema:xsd:Invoice-2">
+	<ext:UBLExtensions>
+		<ext:UBLExtension>
+			<ext:ExtensionContent>
+				<Signature Id="SignatureErick"
+         					xmlns="http://www.w3.org/2000/09/xmldsig#">
+					<SignedInfo>
+						<CanonicalizationMethod Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315" />
+						<SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha256" />
+						<Reference URI="">
+							<Transforms>
+								<Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" />
+							</Transforms>
+							<DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256" />
+							<DigestValue>6Ri2rx4abKAKDWj+YxaMHQJCvHPFjk+u/A4Ti/6Ik8Y=</DigestValue>
+						</Reference>
+					</SignedInfo>
+					<SignatureValue>XydukfLla/kx0NugAWragd3Cv3eY0vW7wOAah7NMyeetKvDS4ItbPOmtbOHo6J2begnO3Zb18x1HZEydgePGnM+pm69W8fPOid2DhLHiiFwn4/YkQFqobylLUZYTMu9BYRAqZfshQY4KcLn2vKsh9cFcA7zdUUKDsd3JN3ZmMJuHS8l4y0UGlTcMlcOGqfKvmMsnjma3M2V2AzdSTm60GD1uEWYRPiL8zQV5WA7252ZPSnSbNzxWC74ERHd55pazzjRO6ysLjrTDtANYgtT4VWj8RfZP56TYkGZY6DD/ZNTXf8FfSKxZ6lWPcev6YY7awWQaa4Zzx/W4/Lf/Mw4E1g==</SignatureValue>
+					<KeyInfo>
+						<X509Data>
+							<X509SubjectName>C=PE, O=GASTRONOMIA OBRES EM &amp; D S.A.C.-GASTRONOMIA OBRES S.A.C., OID.2.5.4.97=20602944302, OU=Issued by SENDA TI SOLUTIONS [PE1], OU=GERENCIA, T=GERENTE GENERAL, S=LIMA - LIMA, L=CHORRILLOS, SERIALNUMBER=DNI:46345481, SN=OBREGON ESPINOZA, G=EVA LIDIA, CN=EVA LIDIA OBREGON ESPINOZA, E=scastilloalva74@gmail.com</X509SubjectName>
+							<X509Certificate>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</X509Certificate>
+						</X509Data>
+					</KeyInfo>
+				</Signature>
+			</ext:ExtensionContent>
+		</ext:UBLExtension>
+	</ext:UBLExtensions>
+	<cbc:UBLVersionID>2.1</cbc:UBLVersionID>
+	<cbc:CustomizationID>2.0</cbc:CustomizationID>
+	<cbc:ID>F001-00000001</cbc:ID>
+	<cbc:IssueDate>2020-01-01</cbc:IssueDate>
+	<cbc:IssueTime>05:00:00.0000000-05:00</cbc:IssueTime>
+	<cbc:DueDate>2020-01-01</cbc:DueDate>
+	<cbc:InvoiceTypeCode>01</cbc:InvoiceTypeCode>
+	<cbc:DocumentCurrencyCode>PEN</cbc:DocumentCurrencyCode>
+	<cac:AccountingSupplierParty>
+		<cac:Party>
+			<cac:PartyIdentification>
+				<cbc:ID schemeID="6">20602944302</cbc:ID>
+			</cac:PartyIdentification>
+			<cac:PartyName>
+				<cbc:Name>GASTRONOMIA OBRES EM &amp; D S.A.C.-GASTRONOMIA OBRES</cbc:Name>
+			</cac:PartyName>
+			<cac:PartyLegalEntity>
+				<cbc:RegistrationName>EVA LIDIA OBREGON ESPINOZA</cbc:RegistrationName>
+			</cac:PartyLegalEntity>
+		</cac:Party>
+	</cac:AccountingSupplierParty>
+	<cac:AccountingCustomerParty>
+		<cac:Party>
+			<cac:PartyIdentification>
+				<cbc:ID schemeID="Tipo de Documento de Identidad"
+      					schemeName="Documento de Identidad"
+      					schemeAgencyName="PE:SUNAT"
+      					schemeURI="urn:pe:gob:sunat:cpe:see:gem:catalogos:catalogo06">numero de documento |an..15</cbc:ID>
+			</cac:PartyIdentification>
+			<cac:PartyLegalEntity>
+				<cbc:RegistrationName>Apellidos y nombres, denominacion o razon social del adquirente o usuario | an..1500</cbc:RegistrationName>
+				<cac:RegistrationAddress>
+					<cbc:ID schemeName="Ubigeos"
+      						schemeAgencyName="PE:INEI">Codigo ubigeo | an6</cbc:ID>
+					<cbc:CitySubdivisionName>Urbanizacion | an..25</cbc:CitySubdivisionName>
+					<cbc:CityName>Provincia | an..30</cbc:CityName>
+					<cbc:CountrySubentity>Departamento | an..30</cbc:CountrySubentity>
+					<cbc:District>Distrito | an..30</cbc:District>
+					<cac:AddressLine>
+						<cbc:Line>Direccion completa y detallada | an..200</cbc:Line>
+					</cac:AddressLine>
+					<cac:Country>
+						<cbc:IdentificationCode listID="ISO 3166-1"
+                      							listAgencyName="United Nations Economic Commission for Europe"
+                      							listName="Country">Codigo pais | an2</cbc:IdentificationCode>
+					</cac:Country>
+				</cac:RegistrationAddress>
+			</cac:PartyLegalEntity>
+		</cac:Party>
+	</cac:AccountingCustomerParty>
+	<cac:TaxTotal>
+		<cbc:TaxAmount currencyID="PEN">1000.0</cbc:TaxAmount>
+		<cac:TaxSubtotal>
+			<cbc:TaxableAmount>1000.0</cbc:TaxableAmount>
+			<cbc:TaxAmount currencyID="PEN">1000.0</cbc:TaxAmount>
+			<cbc:Percent>18.0</cbc:Percent>
+			<cac:TaxCategory>
+				<cbc:ID>S</cbc:ID>
+				<cbc:TaxExemptionReasonCode/>
+				<cbc:TierRange>S</cbc:TierRange>
+				<cac:TaxScheme>
+					<cbc:ID>Id Tributo</cbc:ID>
+					<cbc:Name>Nombre de tributo</cbc:Name>
+					<cbc:TaxTypeCode>Codigo internacional de tributo</cbc:TaxTypeCode>
+				</cac:TaxScheme>
+			</cac:TaxCategory>
+		</cac:TaxSubtotal>
+	</cac:TaxTotal>
+	<cac:LegalMonetaryTotal>
+		<cbc:LineExtensionAmount currencyID="PEN">100.0</cbc:LineExtensionAmount>
+		<cbc:TaxInclusiveAmount currencyID="PEN">99.0</cbc:TaxInclusiveAmount>
+		<cbc:AllowanceTotalAmount currencyID="PEN">80.0</cbc:AllowanceTotalAmount>
+		<cbc:ChargeTotalAmount currencyID="PEN">70.0</cbc:ChargeTotalAmount>
+		<cbc:PrepaidAmount currencyID="PEN">0.0</cbc:PrepaidAmount>
+		<cbc:PayableAmount>50.0</cbc:PayableAmount>
+	</cac:LegalMonetaryTotal>
+	<cac:InvoiceLine>
+		<cbc:ID>Numero de Orden del Item</cbc:ID>
+		<cbc:InvoicedQuantity unitCode="Codigo Unitario"
+                    			unitCodeListID="UN/ECE rec 20"
+                    			unitCodeListAgencyName="United Nations Economic Commission for Europe">3.0</cbc:InvoicedQuantity>
+		<cbc:LineExtensionAmount currencyID="PEN">50.0</cbc:LineExtensionAmount>
+		<cac:PricingReference>
+			<cac:AlternativeConditionPrice>
+				<cbc:PriceAmount currencyID="PEN">50.0</cbc:PriceAmount>
+				<cbc:PriceTypeCode listAgencyName="PE:SUNAT"
+                 					listName="SUNAT:Indicador de Tipo de Precio"
+                 					listURI="urn:pe:gob:sunat:cpe:see:gem:catalogos:catalogo16">Codigo de Tipo de Precio</cbc:PriceTypeCode>
+			</cac:AlternativeConditionPrice>
+		</cac:PricingReference>
+		<cac:AllowanceCharge>
+			<cbc:ChargeIndicator>true</cbc:ChargeIndicator>
+			<cbc:AllowanceChargeReasonCode>Codigo de cargo o descuento</cbc:AllowanceChargeReasonCode>
+			<cbc:MultiplierFactorNumeric>0.13</cbc:MultiplierFactorNumeric>
+			<cbc:Amount currencyID="PEN">20.0</cbc:Amount>
+			<cbc:BaseAmount currencyID="PEN">30.0</cbc:BaseAmount>
+		</cac:AllowanceCharge>
+		<cac:TaxTotal>
+			<cbc:TaxAmount currencyID="PEN">50.0</cbc:TaxAmount>
+			<cac:TaxSubtotal>
+				<cbc:TaxableAmount currencyID="PEN">10.0</cbc:TaxableAmount>
+				<cbc:TaxAmount currencyID="PEN">15.0</cbc:TaxAmount>
+				<cac:TaxCategory>
+					<cbc:ID schemeID="UN/ECE 5305"
+      						schemeAgencyID="6">S</cbc:ID>
+					<cbc:Percent>14.0</cbc:Percent>
+					<cbc:TaxExemptionReasonCode listAgencyName="PE:SUNAT"
+                          						listName="SUNAT:Codigo de Tipo de Afectacion del IGV"
+                          						listURI="urn:pe:gob:sunat:cpe:see:gem:catalogos:catalogo07">Codigo de tipo de afeectacion del igv</cbc:TaxExemptionReasonCode>
+					<cac:TaxScheme>
+						<cbc:ID>Codigo del tributo</cbc:ID>
+						<cbc:Name>Nombre del tributo</cbc:Name>
+						<cbc:TaxTypeCode>Codigo Internacional del producto</cbc:TaxTypeCode>
+					</cac:TaxScheme>
+				</cac:TaxCategory>
+			</cac:TaxSubtotal>
+		</cac:TaxTotal>
+		<cac:Item>
+			<cbc:Description>Descripcion del item</cbc:Description>
+			<cac:SellersItemIdentification>
+				<cbc:ID>Codigo de producto</cbc:ID>
+			</cac:SellersItemIdentification>
+			<cac:CommodityClassification>
+				<cbc:ItemClassificationCode>Catalogo 25 sunat</cbc:ItemClassificationCode>
+			</cac:CommodityClassification>
+		</cac:Item>
+		<cac:Price>
+			<cbc:PriceAmount>50.0</cbc:PriceAmount>
+		</cac:Price>
+	</cac:InvoiceLine>
+</Invoice>

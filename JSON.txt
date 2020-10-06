@@ -1,0 +1,21 @@
+{
+	"Ruc":"10721276762",
+	"Local":"1",
+	"Caja":"1",
+	"TipoDocumento":"01",
+	"NumDocumento":"F00100000001",
+	"Trama":
+	{
+		"EN":"EN|01|F119-00000006||||2020-03-26|PEN|20502117972|6|Pasteleria San Antonio|Pasteleria San Antonio de Angamos Sac|150101|Av. Angamos Oeste 1494 - Lima - Lima - Miraflores                       Encuentranos en: www.glovoapp.com|LIMA|LIMA|LIMA|10721276762|6|DE LA CRUZ QUISPE ERICK LEONARDO|JR. MARIANO RAMOS Lt. 15 Mza. D|39.24|7.06|0.00|0.00|46.90||0.00|0|0|PE|LIMA",
+		"ENEX":"ENEX|2.1|0101|0|0.00|0.00|2020-03-26|16:17:00|0000|46.9",
+		"ITEM":[ 
+			"DE|001|17.00|NIU|1.00|14.41|0000044|01|14.41|14.41||||
+DEDI|Huevo frito con jamon|||||||
+DEDR|false|0|00|0|14.41
+DEIM|2.59|14.41|2.59|18|VAT|10||1000|IGV|VAT|0|0
+DEIM|2.59|0.00|0.00|0||10||7152|ICBPER|OTH|0|0"
+			],
+		"DI":[ "DI|7.06|7.06|1000|IGV|VAT|39.24","DI|7.06|1.80|7152|ICBPER|OTH|0"
+			]
+	}
+}

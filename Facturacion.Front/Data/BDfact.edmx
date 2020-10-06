@@ -1,0 +1,206 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="BDfactModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Documentos">
+          <Key>
+            <PropertyRef Name="IdDocumento" />
+          </Key>
+          <Property Name="IdDocumento" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Ruc" Type="varchar" MaxLength="50" />
+          <Property Name="Documento" Type="varchar" MaxLength="50" />
+          <Property Name="TipoDocumento" Type="varchar" MaxLength="2" />
+          <Property Name="Caja" Type="varchar" MaxLength="3" />
+          <Property Name="IdLocal" Type="uniqueidentifier" />
+          <Property Name="IdTrama" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Estado" Type="varchar" MaxLength="10" />
+          <Property Name="FechaRegistroSet" Type="datetimeoffset" Precision="7" />
+          <Property Name="FechaRegistro" Type="smalldatetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Documentos_Tramas">
+          <Key>
+            <PropertyRef Name="IdTrama" />
+          </Key>
+          <Property Name="IdTrama" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="json" Type="varchar(max)" />
+          <Property Name="xml" Type="varchar(max)" />
+          <Property Name="xmlzip" Type="varchar(max)" />
+          <Property Name="Firmaxml" Type="varchar(max)" />
+          <Property Name="Hash" Type="varchar(max)" />
+          <Property Name="cdr" Type="nchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="Usuarios">
+          <Key>
+            <PropertyRef Name="IdUsuario" />
+          </Key>
+          <Property Name="IdUsuario" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Usuario" Type="varchar" MaxLength="20" />
+          <Property Name="Password" Type="varchar" MaxLength="20" />
+          <Property Name="FechaRegistroSet" Type="datetimeoffset" Precision="7" />
+          <Property Name="FechaRegistro" Type="datetime" />
+          <Property Name="IdTipoUsuario" Type="bigint" />
+          <Property Name="Activo" Type="bit" />
+        </EntityType>
+        <Association Name="FK_Documentos_Documentos_Tramas">
+          <End Role="Documentos_Tramas" Type="Self.Documentos_Tramas" Multiplicity="1" />
+          <End Role="Documentos" Type="Self.Documentos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Documentos_Tramas">
+              <PropertyRef Name="IdTrama" />
+            </Principal>
+            <Dependent Role="Documentos">
+              <PropertyRef Name="IdTrama" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="BDfactModelStoreContainer">
+          <EntitySet Name="Documentos" EntityType="Self.Documentos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Documentos_Tramas" EntityType="Self.Documentos_Tramas" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Usuarios" EntityType="Self.Usuarios" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Documentos_Documentos_Tramas" Association="Self.FK_Documentos_Documentos_Tramas">
+            <End Role="Documentos_Tramas" EntitySet="Documentos_Tramas" />
+            <End Role="Documentos" EntitySet="Documentos" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="BDfactModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Documentos">
+          <Key>
+            <PropertyRef Name="IdDocumento" />
+          </Key>
+          <Property Name="IdDocumento" Type="Guid" Nullable="false" />
+          <Property Name="Ruc" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Documento" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="TipoDocumento" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="Caja" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="IdLocal" Type="Guid" />
+          <Property Name="IdTrama" Type="Guid" Nullable="false" />
+          <Property Name="Estado" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="FechaRegistroSet" Type="DateTimeOffset" Precision="7" />
+          <Property Name="FechaRegistro" Type="DateTime" Nullable="false" Precision="0" />
+          <NavigationProperty Name="Documentos_Tramas" Relationship="Self.FK_Documentos_Documentos_Tramas" FromRole="Documentos" ToRole="Documentos_Tramas" />
+        </EntityType>
+        <EntityType Name="Documentos_Tramas">
+          <Key>
+            <PropertyRef Name="IdTrama" />
+          </Key>
+          <Property Name="IdTrama" Type="Guid" Nullable="false" />
+          <Property Name="json" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="xml" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="xmlzip" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Firmaxml" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Hash" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="cdr" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <NavigationProperty Name="Documentos" Relationship="Self.FK_Documentos_Documentos_Tramas" FromRole="Documentos_Tramas" ToRole="Documentos" />
+        </EntityType>
+        <EntityType Name="Usuarios">
+          <Key>
+            <PropertyRef Name="IdUsuario" />
+          </Key>
+          <Property Name="IdUsuario" Type="Guid" Nullable="false" />
+          <Property Name="Usuario" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Password" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="FechaRegistroSet" Type="DateTimeOffset" Precision="7" />
+          <Property Name="FechaRegistro" Type="DateTime" Precision="3" />
+          <Property Name="IdTipoUsuario" Type="Int64" />
+          <Property Name="Activo" Type="Boolean" />
+        </EntityType>
+        <Association Name="FK_Documentos_Documentos_Tramas">
+          <End Role="Documentos_Tramas" Type="Self.Documentos_Tramas" Multiplicity="1" />
+          <End Role="Documentos" Type="Self.Documentos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Documentos_Tramas">
+              <PropertyRef Name="IdTrama" />
+            </Principal>
+            <Dependent Role="Documentos">
+              <PropertyRef Name="IdTrama" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="FactConexion" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Documentos" EntityType="Self.Documentos" />
+          <EntitySet Name="Documentos_Tramas" EntityType="Self.Documentos_Tramas" />
+          <EntitySet Name="Usuarios" EntityType="Self.Usuarios" />
+          <AssociationSet Name="FK_Documentos_Documentos_Tramas" Association="Self.FK_Documentos_Documentos_Tramas">
+            <End Role="Documentos_Tramas" EntitySet="Documentos_Tramas" />
+            <End Role="Documentos" EntitySet="Documentos" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="BDfactModelStoreContainer" CdmEntityContainer="FactConexion">
+          <EntitySetMapping Name="Documentos">
+            <EntityTypeMapping TypeName="BDfactModel.Documentos">
+              <MappingFragment StoreEntitySet="Documentos">
+                <ScalarProperty Name="IdDocumento" ColumnName="IdDocumento" />
+                <ScalarProperty Name="Ruc" ColumnName="Ruc" />
+                <ScalarProperty Name="Documento" ColumnName="Documento" />
+                <ScalarProperty Name="TipoDocumento" ColumnName="TipoDocumento" />
+                <ScalarProperty Name="Caja" ColumnName="Caja" />
+                <ScalarProperty Name="IdLocal" ColumnName="IdLocal" />
+                <ScalarProperty Name="IdTrama" ColumnName="IdTrama" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="FechaRegistroSet" ColumnName="FechaRegistroSet" />
+                <ScalarProperty Name="FechaRegistro" ColumnName="FechaRegistro" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Documentos_Tramas">
+            <EntityTypeMapping TypeName="BDfactModel.Documentos_Tramas">
+              <MappingFragment StoreEntitySet="Documentos_Tramas">
+                <ScalarProperty Name="IdTrama" ColumnName="IdTrama" />
+                <ScalarProperty Name="json" ColumnName="json" />
+                <ScalarProperty Name="xml" ColumnName="xml" />
+                <ScalarProperty Name="xmlzip" ColumnName="xmlzip" />
+                <ScalarProperty Name="Firmaxml" ColumnName="Firmaxml" />
+                <ScalarProperty Name="Hash" ColumnName="Hash" />
+                <ScalarProperty Name="cdr" ColumnName="cdr" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Usuarios">
+            <EntityTypeMapping TypeName="BDfactModel.Usuarios">
+              <MappingFragment StoreEntitySet="Usuarios">
+                <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
+                <ScalarProperty Name="Usuario" ColumnName="Usuario" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="FechaRegistroSet" ColumnName="FechaRegistroSet" />
+                <ScalarProperty Name="FechaRegistro" ColumnName="FechaRegistro" />
+                <ScalarProperty Name="IdTipoUsuario" ColumnName="IdTipoUsuario" />
+                <ScalarProperty Name="Activo" ColumnName="Activo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

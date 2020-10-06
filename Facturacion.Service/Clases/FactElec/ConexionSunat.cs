@@ -51,7 +51,7 @@ namespace FacturacionElectronica.Clases.FactElec
             try
             {
                 _proxy.OpenAsync();
-                var resultado = _proxy.sendBill(nombreArchivo, dataOrigen,string.Empty);
+                var resultado = _proxy.sendBill(nombreArchivo, dataOrigen, string.Empty);
                 _proxy.CloseAsync();
 
                 response = new Tuple<string, bool>(Convert.ToBase64String(resultado), true);
@@ -90,7 +90,7 @@ namespace FacturacionElectronica.Clases.FactElec
             try
             {
                 _proxy.OpenAsync();
-                var resultado = _proxy.sendSummaryAsync(nombreArchivo, dataOrigen,string.Empty);
+                var resultado = _proxy.sendSummaryAsync(nombreArchivo, dataOrigen, string.Empty);
                 _proxy.CloseAsync();
 
                 response = new Tuple<string, bool>(resultado.Result.ticket, true);
